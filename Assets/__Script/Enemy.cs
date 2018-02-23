@@ -24,7 +24,7 @@ public abstract class Enemy : MonoBehaviour {
     protected void Update()
     {
         Move();
-        if (!boundsCheck.isOnScreen) DestoryEnemy();
+        if (boundsCheck!=null && !boundsCheck.isOnScreen) DestoryEnemy();
     }
 
 
