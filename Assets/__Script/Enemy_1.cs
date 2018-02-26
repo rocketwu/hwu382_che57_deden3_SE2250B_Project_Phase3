@@ -26,15 +26,5 @@ public class Enemy_1 : Enemy {
         Direction = Random.Range(-1, 1);
     }
 	
-	// Update is called once per frame
-	//protected new void Update () {
- //       base.Update();  //call Update() in superclass so that the boundcheck can be done.
-	//}
-
- //   protected new void Awake()
- //   {
- //       base.Awake();   //call Awake() in superclass to do the necessary init.
- //       //Debug.Log("Sub awake");
- //   }
 
 }

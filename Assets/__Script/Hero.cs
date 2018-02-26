@@ -55,51 +55,6 @@ public class Hero : MonoBehaviour {
 		
 	}
 
-    //private void LateUpdate()
-    //{
-    //    Vector3 pos = transform.position;
-    //    Vector2 boun = BoundaryDetect();
-    //    if (boun.x!=0f)
-    //    {
-    //        pos.x = boun.x * (camWidth - Bleeding);
-            
-    //    }
-    //    if (boun.y!=0f)
-    //    {
-    //        pos.y = boun.y * (camHeight - Bleeding);
-           
-    //    }
-    //    transform.position = pos;
-    //}
 
-
-
-    //Vector2 BoundaryDetect()
-    //{
-    //    Vector2 boundaryReached = Vector2.zero;
-    //    if (transform.position.x>camWidth-Bleeding)
-    //    {
-    //        //when the object reach the right boundary
-    //        boundaryReached += Vector2.right;
-    //    }
-    //    if (transform.position.x< -camWidth+Bleeding)
-    //    {
-    //        //when the obj reaches the left boundary
-    //        boundaryReached += Vector2.left;
-    //    }
-    //    if (transform.position.y>camHeight-Bleeding)
-    //    {
-    //        //when the obj reaches the top
-    //        boundaryReached += Vector2.up;
-    //    }
-    //    if (transform.position.y<-camHeight+Bleeding)
-    //    {
-    //        boundaryReached += Vector2.down;
-    //    }
-
-        
-
-    //    return boundaryReached;
-    //}
 
 }
