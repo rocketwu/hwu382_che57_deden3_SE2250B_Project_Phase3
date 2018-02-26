@@ -22,15 +22,19 @@ public class BoundsCheck : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+		//boun set equal to boundary hit
+		// if no boundary is hit, boun is (0,0)
         Vector2 boun = BoundaryDetect();
         if (keepOnScreen)
         {
             Vector3 pos = transform.position;
+			//if boundary x is not 0, change position
             if (boun.x != 0f)
             {
                 pos.x = boun.x * (camWidth - padding);
 
             }
+			//if boundary y is not 0, change position
             if (boun.y != 0f)
             {
                 pos.y = boun.y * (camHeight - padding);
@@ -41,6 +45,7 @@ public class BoundsCheck : MonoBehaviour {
         }
         else
         {
+			//if boundary is hit, sets on screen status to false
             if (boun != Vector2.zero) isOnScreen = false;
             else isOnScreen = true;
         }		
@@ -61,16 +66,20 @@ public class BoundsCheck : MonoBehaviour {
         }
         if (transform.position.y > camHeight - padding)
         {
-            //when the obj reaches the top
+            //when the object reaches the top boundary
             boundaryReached += Vector2.up;
         }
         if (transform.position.y < -camHeight + padding)
         {
+			//when the object reaches the bottom boundary
             boundaryReached += Vector2.down;
         }
 
 
-
+		//if the object reaches the right boundary, boundaryReached = (1,0)
+		//if the object reaches the left boundary, boundaryReached = (-1,0)
+		//if the object reaches the top boundary, boundaryReached = (0,1)
+		//if the object reaches the bottom boundary, boundaryReached = (0,-1)
         return boundaryReached;
     }
 }

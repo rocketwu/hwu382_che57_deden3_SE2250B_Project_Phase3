@@ -13,15 +13,5 @@ public class Enemy_0 : Enemy {
 		
 	}
 	
-	// Update is called once per frame
-	//protected new void Update () {
- //       base.Update();   //call Update() in superclass so that the boundcheck can be done.
- //   }
-
- //   private new void Awake()
- //   {
- //       base.Awake();   //call Awake() in superclass to do the necessary init.
- //       //Debug.Log("Sub awake");
- //   }
 
 }

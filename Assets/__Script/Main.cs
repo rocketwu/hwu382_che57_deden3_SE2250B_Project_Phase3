@@ -61,8 +61,5 @@ public class Main : MonoBehaviour {
 
     }
 
-    //private void Update()
-    //{
-    //    Debug.Log(Random.Range(0, prefabEnemies.Length));
-    //}
+    
 }
