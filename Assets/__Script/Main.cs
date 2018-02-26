@@ -53,7 +53,7 @@ public class Main : MonoBehaviour {
 
         Vector3 pos = Vector3.zero;
         pos.x = Random.Range(-(boundsCheck.camWidth - padding), boundsCheck.camWidth - padding);
-        pos.y = boundsCheck.camHeight - padding;
+        pos.y = boundsCheck.camHeight + padding;
 
         go.transform.position = pos;
 
