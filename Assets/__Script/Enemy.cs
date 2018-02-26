@@ -8,11 +8,11 @@ public abstract class Enemy : MonoBehaviour {
     public float speed = 10f;
 
     public BoundsCheck boundsCheck;
-
+	float time = 0f;
     public abstract void Move();
     public void DestoryEnemy()
     {
-        Destroy(gameObject);
+        	Destroy(gameObject);
     }
 
     protected void Awake()
@@ -24,7 +24,11 @@ public abstract class Enemy : MonoBehaviour {
     protected void Update()
     {
         Move();
-        if (boundsCheck!=null && !boundsCheck.isOnScreen) DestoryEnemy();
+		if (boundsCheck != null && !boundsCheck.isOnScreen) {
+			time += Time.deltaTime;
+			if(time >= 0.5f)
+				DestoryEnemy ();
+		}
     }
 
 
