@@ -18,7 +18,36 @@ public class Hero : MonoBehaviour {
     //for restrain=============
 
     [Header("Set Dynamically")]
-    public float shieldLevel = 1;
+    //public float shieldLevel = 1;
+    private GameObject lastContact;
+    private float _shieldLevel = 1;
+
+    public float shieldLevel
+    {
+        get
+        {
+            return _shieldLevel;
+        }
+        set
+        {
+            _shieldLevel = Mathf.Min(value, 4);
+            if(value<0)
+            {
+                Destroy(this.gameObject);
+                Main.S.DelayedRestart();
+            }
+            if (value <= 0)
+            {
+                GetComponentInChildren<Shield>().gameObject.GetComponent<SphereCollider>().enabled = false;
+                GetComponent<SphereCollider>().enabled = true;
+            }
+            else
+            {
+                GetComponentInChildren<Shield>().gameObject.GetComponent<SphereCollider>().enabled = true;
+                GetComponent<SphereCollider>().enabled = false;
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -55,6 +84,22 @@ public class Hero : MonoBehaviour {
 		
 	}
 
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (lastContact== other.transform.root.gameObject)
+        {
+            return;
+        }
+        
+        lastContact = other.transform.root.gameObject;
+        if (lastContact.tag=="Enemy")
+        {
+            shieldLevel--;
+            Destroy(lastContact);//maybe not?
 
+        }
+
+    }
 
 }
