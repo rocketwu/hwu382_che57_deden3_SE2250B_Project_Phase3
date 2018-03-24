@@ -6,7 +6,8 @@ public abstract class Enemy : MonoBehaviour {
 
     [Header("Set in Inspector")]
     public float speed = 10f;
-
+	public int enemyHp;
+	private GameObject lastContact;
     public BoundsCheck boundsCheck;
 	float time = 0f;
     public abstract void Move();
@@ -24,6 +25,7 @@ public abstract class Enemy : MonoBehaviour {
     protected void Update()
     {
         Move();
+		CheckHp ();
 		if (boundsCheck != null && !boundsCheck.isOnScreen) {
 			time += Time.deltaTime;
 			if(time >= 0.5f)
@@ -31,5 +33,25 @@ public abstract class Enemy : MonoBehaviour {
 		}
     }
 
+	protected void CheckHp ()
+	{
+		if (enemyHp <= 0)
+			DestoryEnemy ();
+	}
 
+	private void OnTriggerEnter(Collider other)
+	{
+		if (lastContact== other.transform.root.gameObject)
+		{
+			return;
+		}
+
+		lastContact = other.transform.root.gameObject;
+		if (lastContact.tag=="Bullet")
+		{
+			Destroy(lastContact);//maybe not?
+			enemyHp--;
+		}
+
+	}
 }
