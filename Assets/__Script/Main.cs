@@ -13,7 +13,8 @@ public class Main : MonoBehaviour {
     public float enemySpawnPerSecond = 0.5f;
     public float enemyDefultPadding = 1.5f;         //the default padding is used when the object dont have BoundsCheck script. this is good 
     public float restartDelay = 2f;
-
+	public enum weaponType {simpleWp, blasterWp};
+	//public weaponType wp = weaponType.simpleWp;
     private BoundsCheck boundsCheck;
 
     private void Awake()

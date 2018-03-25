@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : MonoBehaviour {
-	public enum weaponType {simpleWp, blasterWp};
     static public Hero S;
 
     [Header("Set in Inspector")]
     public float speed = 30;
     public float rollMult = -45;
     public float pitchMult = 30;
-	private weaponType _heroWp = weaponType.simpleWp;
+	//private weaponType _heroWp = weaponType.simpleWp;
 
     //for restrain=============
     //public float Bleeding = 1f;

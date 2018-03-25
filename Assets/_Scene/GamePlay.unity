@@ -273,7 +273,6 @@ GameObject:
   - component: {fileID: 474748970}
   - component: {fileID: 474748972}
   - component: {fileID: 474748973}
-  - component: {fileID: 474748974}
   m_Layer: 8
   m_Name: _Hero
   m_TagString: Hero
@@ -294,6 +293,7 @@ Transform:
   - {fileID: 502886207}
   - {fileID: 367289452}
   - {fileID: 955427758}
+  - {fileID: 847067599}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -354,20 +354,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &474748974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 474748968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27627ac61720f9c479caa224112804f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1659583258851780, guid: 49f6115f3f9d5b14791cd436cf8f1725,
-    type: 2}
-  bulletSpeed: 10
 --- !u!1 &502886206
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +438,49 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 502886206}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &847067598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 847067599}
+  - component: {fileID: 847067600}
+  m_Layer: 8
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &847067599
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 847067598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 474748969}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &847067600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 847067598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27627ac61720f9c479caa224112804f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1659583258851780, guid: 49f6115f3f9d5b14791cd436cf8f1725,
+    type: 2}
+  bulletSpeed: 50
 --- !u!1 &955427757
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +592,7 @@ GameObject:
   - component: {fileID: 1577503831}
   - component: {fileID: 1577503835}
   - component: {fileID: 1577503836}
+  - component: {fileID: 1577503837}
   m_Layer: 0
   m_Name: _MainCamera
   m_TagString: MainCamera
@@ -665,3 +695,15 @@ MonoBehaviour:
   isOnScreen: 1
   camWidth: 0
   camHeight: 0
+--- !u!114 &1577503837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1577503830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d506cbab8ff1847939e0e2ccf7c880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreDisplay: {fileID: 0}
