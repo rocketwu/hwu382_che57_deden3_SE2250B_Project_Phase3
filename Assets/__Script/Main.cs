@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
     static public Main S;
+	public static int highScore = 0;
 
     [Header("Set in Inspector")]
     public GameObject[] prefabEnemies;
@@ -16,6 +18,7 @@ public class Main : MonoBehaviour {
 	public enum weaponType {simpleWp, blasterWp};
 	//public weaponType wp = weaponType.simpleWp;
     private BoundsCheck boundsCheck;
+	public Text highScoreText;
 
     private void Awake()
     {
@@ -48,11 +51,15 @@ public class Main : MonoBehaviour {
 
     public void DelayedRestart()
     {
+		if (highScore < ScoreDisplay.score)
+			highScore = ScoreDisplay.score;
+		displayHighScore ();
         Invoke("Restart", restartDelay);
     }
 
     public void Restart()
     {
+		highScoreText.text = "";
         SceneManager.LoadScene("GamePlay");
     }
 
@@ -74,5 +81,12 @@ public class Main : MonoBehaviour {
 
     }
 
-    
+	public void displayHighScore(){
+		highScoreText.text = "Your High Score is: " + highScore + "!";
+	}
+
+//	private int getScore(){
+//		int result = 0;
+//		result = ScoreDisplay.score;
+//	}
 }
