@@ -7,13 +7,16 @@ public abstract class Enemy : MonoBehaviour {
     [Header("Set in Inspector")]
     public float speed = 10f;
 	public int enemyHp;
+	public int enemySc;
 	private GameObject lastContact;
     public BoundsCheck boundsCheck;
 	float time = 0f;
+
     public abstract void Move();
+
     public void DestoryEnemy()
     {
-        	Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     protected void Awake()
@@ -35,8 +38,10 @@ public abstract class Enemy : MonoBehaviour {
 
 	protected void CheckHp ()
 	{
-		if (enemyHp <= 0)
+		if (enemyHp <= 0) {
 			DestoryEnemy ();
+			Camera.main.GetComponent<ScoreDisplay> ().AddScore (enemySc);
+		}
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -52,6 +57,5 @@ public abstract class Enemy : MonoBehaviour {
 			Destroy(lastContact);//maybe not?
 			enemyHp--;
 		}
-
 	}
 }

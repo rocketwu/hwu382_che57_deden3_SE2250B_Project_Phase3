@@ -12,11 +12,15 @@ public class ScoreDisplay : MonoBehaviour {
 		SetScoreDisplay ();
 	}
 
+//	void Update(){
+//		SetScoreDisplay ();
+//	}
 
-	void	SetScoreDisplay()
+	private void SetScoreDisplay()
 	{
 		scoreDisplay.text = "Score: " + score;
 	}
+
 	public void AddScore(int newScoreValue)
 	{
 		score += newScoreValue;
