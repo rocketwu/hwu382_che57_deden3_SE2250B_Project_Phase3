@@ -18,14 +18,20 @@ public class ScoreDisplay : MonoBehaviour {
 
 	private void SetScoreDisplay()
 	{
-		scoreDisplay.text = "Score: " + score;
+		scoreDisplay.text = "Score: " + score + "   High Score: "+Main.highScore;
+
 	}
 
 	public void AddScore(int newScoreValue)
 	{
 		score += newScoreValue;
-		SetScoreDisplay ();
-	}
+		
+        if (Main.highScore <= score)
+        {
+            Main.highScore = score;
+        }
+        SetScoreDisplay();
+    }
 	// Update is called once per frame
 	void Update () {
 		

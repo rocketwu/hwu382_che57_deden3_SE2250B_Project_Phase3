@@ -53,11 +53,13 @@ public class Main : MonoBehaviour {
 
     public void DelayedRestart()
     {
-		if (highScore < ScoreDisplay.score)
-        {
-            highScore = ScoreDisplay.score;
-            setHigh();
-        }
+        //if (highscore < scoredisplay.score)
+        //      {
+        //          highscore = scoredisplay.score;
+
+        //      }
+        setHigh();
+
 			
 		displayHighScore ();
         Invoke("Restart", restartDelay);

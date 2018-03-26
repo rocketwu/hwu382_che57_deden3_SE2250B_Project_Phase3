@@ -9,10 +9,12 @@ public class Shooting : MonoBehaviour {
 	public Main.weaponType wp = Main.weaponType.simpleWp;
     public delegate void FireDelegate();
     public FireDelegate fireDelegate;
+    public int numOfRPGs;                                   //number of bombs
 	// Use this for initialization
 	void Awake () {
 		bulletSpeed = 50f;
         fireDelegate += fire;
+        numOfRPGs = 2;
 	}
 	
 	// Update is called once per frame
