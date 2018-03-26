@@ -18,7 +18,7 @@ public class ScoreDisplay : MonoBehaviour {
 
 	private void SetScoreDisplay()
 	{
-		scoreDisplay.text = "Score: " + score + "   High Score: "+Main.highScore;
+		scoreDisplay.text = "Score: " + score + "   High Score: "+ Main.highScore;
 
 	}
 

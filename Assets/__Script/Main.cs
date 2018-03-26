@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour {
 
     static public Main S;
-	public static int highScore = 0;
+	public static int highScore;
 
     [Header("Set in Inspector")]
     public GameObject[] prefabEnemies;
