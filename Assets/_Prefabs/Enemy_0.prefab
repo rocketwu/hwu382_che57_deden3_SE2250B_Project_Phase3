@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  enemyHp: 4
+  enemyHp: 1
   enemySc: 2
   boundsCheck: {fileID: 0}
 --- !u!114 &114842033723712886
