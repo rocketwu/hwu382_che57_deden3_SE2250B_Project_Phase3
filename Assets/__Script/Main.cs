@@ -45,7 +45,7 @@ public class Main : MonoBehaviour {
 
         
 
-        Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
+        Invoke("SpawnEnemy", 0.5f / enemySpawnPerSecond);
 
     }
 

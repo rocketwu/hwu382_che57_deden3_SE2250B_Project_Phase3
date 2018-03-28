@@ -352,7 +352,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &502886206
 GameObject:
@@ -887,6 +887,7 @@ MonoBehaviour:
   prefabEnemies:
   - {fileID: 1880286674923814, guid: b69bcc160aa7d1b43818909d4d487d1e, type: 2}
   - {fileID: 1298311981504876, guid: ad12f8c7289148140bf6acb1d8508651, type: 2}
+  - {fileID: 1262506859441766, guid: fca64bd6f4965d44fb0f7c16f6088dc3, type: 2}
   enemySpawnPerSecond: 0.5
   enemyDefultPadding: 1.5
   restartDelay: 2
@@ -1001,7 +1002,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2001194196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 104, y: 138.5, z: 0}
+  m_LocalPosition: {x: 77.5, y: 103, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 804476743}

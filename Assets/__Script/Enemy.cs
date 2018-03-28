@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour {
 
     [Header("Set in Inspector")]
-    public float speed = 10f;
+    public float speed;
 	public int enemyHp;
 	public int enemySc;
 	private GameObject lastContact;
@@ -58,4 +58,5 @@ public abstract class Enemy : MonoBehaviour {
 			enemyHp--;
 		}
 	}
+
 }

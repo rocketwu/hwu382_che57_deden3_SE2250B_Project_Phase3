@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour {
     static public Hero S;
+	public static Vector3 heroPosition;
 
     [Header("Set in Inspector")]
     public float speed = 30;
@@ -78,7 +79,7 @@ public class Hero : MonoBehaviour {
         transform.position = pos;
 
         transform.rotation = Quaternion.Euler(y * pitchMult, x * rollMult, 0);
-
+		heroPosition = transform.position;
         
 
 		
