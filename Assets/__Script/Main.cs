@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour {
 
     static public Main S;
-	public static int highScore = 0;
+	public static int highScore;
 
     [Header("Set in Inspector")]
     public GameObject[] prefabEnemies;
@@ -30,6 +31,7 @@ public class Main : MonoBehaviour {
         {
             S = this;
         }
+        readHigh();
 
 
         boundsCheck = GetComponent<BoundsCheck>();
@@ -51,8 +53,14 @@ public class Main : MonoBehaviour {
 
     public void DelayedRestart()
     {
-		if (highScore < ScoreDisplay.score)
-			highScore = ScoreDisplay.score;
+        //if (highscore < scoredisplay.score)
+        //      {
+        //          highscore = scoredisplay.score;
+
+        //      }
+        setHigh();
+
+			
 		displayHighScore ();
         Invoke("Restart", restartDelay);
     }
@@ -85,8 +93,28 @@ public class Main : MonoBehaviour {
 		highScoreText.text = "Your High Score is: " + highScore + "!";
 	}
 
-//	private int getScore(){
-//		int result = 0;
-//		result = ScoreDisplay.score;
-//	}
+    private void readHigh()
+    {
+        try
+        {
+            string str = File.ReadAllText(@".\hs.txt");
+            highScore = int.Parse(str);
+        } catch(Exception ex)
+        {
+            highScore = 0;
+            setHigh();
+        }
+    }
+
+    private void setHigh()
+    {
+        try
+        {
+            File.WriteAllText(@".\hs.txt", highScore.ToString());
+        }catch(Exception ex)
+        {
+
+        }
+    }
+
 }

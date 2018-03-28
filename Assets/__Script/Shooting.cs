@@ -7,9 +7,14 @@ public class Shooting : MonoBehaviour {
 	public GameObject bulletPrefab;
 	public float bulletSpeed;
 	public Main.weaponType wp = Main.weaponType.simpleWp;
+    public delegate void FireDelegate();
+    public FireDelegate fireDelegate;
+    public int numOfRPGs;                                   //number of bombs
 	// Use this for initialization
 	void Awake () {
 		bulletSpeed = 50f;
+        fireDelegate += fire;
+        numOfRPGs = 2;
 	}
 	
 	// Update is called once per frame
@@ -17,7 +22,7 @@ public class Shooting : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.T))
 			switchWeapon ();
 		if (Input.GetKeyDown (KeyCode.Space))
-			fire (wp);
+			fire ();
 		//simpleShooting ();
 		//blasterShooting ();	
 	}
@@ -53,7 +58,7 @@ public class Shooting : MonoBehaviour {
 			wp = Main.weaponType.simpleWp;
 	}
 
-	private void fire(Main.weaponType wp){
+	private void fire(){
 		if (wp == Main.weaponType.blasterWp)
 			blasterShooting ();
 		if (wp == Main.weaponType.simpleWp) {
