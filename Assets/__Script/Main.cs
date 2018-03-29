@@ -85,7 +85,7 @@ public class Main : MonoBehaviour {
 
         go.transform.position = pos;
 
-        Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
+        Invoke("SpawnEnemy", 0.5f / enemySpawnPerSecond);
 
     }
 
