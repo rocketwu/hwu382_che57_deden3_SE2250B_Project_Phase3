@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour {
 
     static public Main S;
-	public static int highScore;
+	public int highScore;
 
     [Header("Set in Inspector")]
     public GameObject[] prefabEnemies;
@@ -30,18 +30,18 @@ public class Main : MonoBehaviour {
         score = 0;
         SetScoreDisplay();
     }
-        private void SetScoreDisplay()
+    private void SetScoreDisplay()
     {
-        scoreDisplay.text = "Score: " + score + "   High Score: " + Main.highScore;
+        scoreDisplay.text = "Score: " + score + "   High Score: " + highScore;
 
     }
     public void AddScore(int newScoreValue)
     {
         score += newScoreValue;
 
-        if (Main.highScore <= score)
+        if (highScore <= score)
         {
-            Main.highScore = score;
+            highScore = score;
         }
         SetScoreDisplay();
     }
@@ -73,7 +73,7 @@ public class Main : MonoBehaviour {
 
         
 
-        Invoke("SpawnEnemy", 0.5f / enemySpawnPerSecond);
+        //Invoke("SpawnEnemy", 0.5f / enemySpawnPerSecond);
 
     }
 
@@ -97,23 +97,23 @@ public class Main : MonoBehaviour {
         SceneManager.LoadScene("GamePlay");
     }
 
-    public void SpawnEnemy()
-    {
-        int index = UnityEngine.Random.Range(0, prefabEnemies.Length);
-        GameObject go = Instantiate<GameObject>(prefabEnemies[index]);
+    //public void SpawnEnemy()
+    //{
+    //    int index = UnityEngine.Random.Range(0, prefabEnemies.Length);
+    //    GameObject go = Instantiate<GameObject>(prefabEnemies[index]);
 
-        float padding = enemyDefultPadding;
-        if (go.GetComponent<BoundsCheck>() != null) padding = Mathf.Abs(go.GetComponent<BoundsCheck>().padding);
+    //    float padding = enemyDefultPadding;
+    //    if (go.GetComponent<BoundsCheck>() != null) padding = Mathf.Abs(go.GetComponent<BoundsCheck>().padding);
 
-        Vector3 pos = Vector3.zero;
-        pos.x = UnityEngine.Random.Range(-(boundsCheck.camWidth - padding), boundsCheck.camWidth - padding);
-        pos.y = boundsCheck.camHeight + padding;
+    //    Vector3 pos = Vector3.zero;
+    //    pos.x = UnityEngine.Random.Range(-(boundsCheck.camWidth - padding), boundsCheck.camWidth - padding);
+    //    pos.y = boundsCheck.camHeight + padding;
 
-        go.transform.position = pos;
+    //    go.transform.position = pos;
 
-        Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
+    //    Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
 
-    }
+    //}
 
 	public void displayHighScore(){
 		highScoreText.text = "Your High Score is: " + highScore + "!";
