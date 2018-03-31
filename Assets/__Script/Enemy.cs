@@ -44,19 +44,19 @@ public abstract class Enemy : MonoBehaviour {
 		}
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (lastContact== other.transform.root.gameObject)
-		{
-			return;
-		}
-
-		lastContact = other.transform.root.gameObject;
-		if (lastContact.tag=="Bullet")
-		{
-			Destroy(lastContact);//maybe not?
-			enemyHp--;
-		}
-	}
+//	private void OnTriggerEnter(Collider other)
+//	{
+//		if (lastContact== other.transform.root.gameObject)
+//		{
+//			return;
+//		}
+//
+//		lastContact = other.transform.root.gameObject;
+//		if (lastContact.tag=="Bullet")
+//		{
+//			Destroy(lastContact);//maybe not?
+//			enemyHp--;
+//		}
+//	}
 
 }

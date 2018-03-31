@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 	private BoundsCheck boundsCheck;
 	private float time = 0f;
+	private GameObject lastContact;
+
 
 	// Use this for initialization
 	void Awake () {
@@ -24,5 +26,19 @@ public class Bullet : MonoBehaviour {
 				Destroy(gameObject);
 		}
 	}
-		
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (lastContact== other.transform.root.gameObject)
+		{
+			return;
+		}
+
+		lastContact = other.transform.root.gameObject;//.GetComponentInParent<GameObject>();
+		if (lastContact.tag=="Enemy")
+		{
+			Destroy(this.gameObject);//maybe not?
+			other.gameObject.GetComponentInParent<Enemy>().enemyHp--;
+		}
+	}	
 }

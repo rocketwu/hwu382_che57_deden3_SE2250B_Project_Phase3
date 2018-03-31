@@ -25,8 +25,12 @@ public class Shooting : MonoBehaviour {
 			switchWeapon ();
 		if (Input.GetKeyDown (KeyCode.Space))
 			fire ();
-		if (Input.GetKeyDown (KeyCode.O))
-			autoShot = true;
+		if (Input.GetKeyDown (KeyCode.O)) {
+			if (autoShot == false)
+				autoShot = true;
+			else
+				autoShot = false;
+		}
 		if (autoShot == true) {
 			counter += Time.deltaTime;
 			if (counter >= 0.1f) {

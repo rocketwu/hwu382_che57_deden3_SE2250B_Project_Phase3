@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33351847690307826}
   - component: {fileID: 135843905678585156}
   - component: {fileID: 23484216202788218}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33792524229461506}
   - component: {fileID: 136229514463237184}
   - component: {fileID: 23027133089654592}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114720165182783466}
   - component: {fileID: 114503988569343298}
   - component: {fileID: 136798168987559410}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 1320017583621164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4798234060143080}
   m_RootOrder: 0
