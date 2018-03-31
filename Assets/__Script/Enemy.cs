@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour {
 
+    public static List<GameObject> enemies;
+
     [Header("Set in Inspector")]
     public float speed;
 	public int enemyHp;
@@ -16,6 +18,7 @@ public abstract class Enemy : MonoBehaviour {
 
     public void DestoryEnemy()
     {
+        enemies.Remove(gameObject);
         Destroy(gameObject);
     }
 
@@ -40,7 +43,7 @@ public abstract class Enemy : MonoBehaviour {
 	{
 		if (enemyHp <= 0) {
 			DestoryEnemy ();
-			Camera.main.GetComponent<ScoreDisplay> ().AddScore (enemySc);
+			Camera.main.GetComponent<Main> ().AddScore (enemySc);
 		}
 	}
 
