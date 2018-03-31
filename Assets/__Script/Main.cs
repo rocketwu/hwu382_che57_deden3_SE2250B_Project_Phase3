@@ -12,9 +12,9 @@ public class Main : MonoBehaviour {
 	public int highScore;
 
     [Header("Set in Inspector")]
-    public GameObject[] prefabEnemies;
-    public float enemySpawnPerSecond = 0.5f;
-    public float enemyDefultPadding = 1.5f;         //the default padding is used when the object dont have BoundsCheck script. this is good 
+    //public GameObject[] prefabEnemies;
+    //public float enemySpawnPerSecond = 0.5f;
+    //public float enemyDefultPadding = 1.5f;         //the default padding is used when the object dont have BoundsCheck script. this is good 
     public float restartDelay = 2f;
 	public enum weaponType {simpleWp, blasterWp};
 	//public weaponType wp = weaponType.simpleWp;
@@ -64,14 +64,15 @@ public class Main : MonoBehaviour {
         if (boundsCheck == null) Debug.LogError("no boundsCheck was found in Main");
 
 
-        bool checkPrefab = true;
-        foreach (GameObject ele in prefabEnemies){
-            if (ele == null) checkPrefab = false;
-        }
-        if (prefabEnemies.Length < 1 || !checkPrefab) Debug.LogError("prefab attaching error");
-        
+        //bool checkPrefab = true;
+        //foreach (GameObject ele in prefabEnemies)
+        //{
+        //    if (ele == null) checkPrefab = false;
+        //}
+        //if (prefabEnemies.Length < 1 || !checkPrefab) Debug.LogError("prefab attaching error");
 
-        
+
+
 
         //Invoke("SpawnEnemy", 0.5f / enemySpawnPerSecond);
 
@@ -115,7 +116,7 @@ public class Main : MonoBehaviour {
 
     //}
 
-	public void displayHighScore(){
+    public void displayHighScore(){
 		highScoreText.text = "Your High Score is: " + highScore + "!";
 	}
 
