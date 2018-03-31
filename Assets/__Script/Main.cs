@@ -21,6 +21,32 @@ public class Main : MonoBehaviour {
     private BoundsCheck boundsCheck;
 	public Text highScoreText;
 
+    //take from score display:===============================================================
+    public Text scoreDisplay;
+    public int score;
+
+    private void Start()
+    {
+        score = 0;
+        SetScoreDisplay();
+    }
+        private void SetScoreDisplay()
+    {
+        scoreDisplay.text = "Score: " + score + "   High Score: " + Main.highScore;
+
+    }
+    public void AddScore(int newScoreValue)
+    {
+        score += newScoreValue;
+
+        if (Main.highScore <= score)
+        {
+            Main.highScore = score;
+        }
+        SetScoreDisplay();
+    }
+    //end of take from scoredisplay==========================================================
+
     private void Awake()
     {
         if (S!=null)

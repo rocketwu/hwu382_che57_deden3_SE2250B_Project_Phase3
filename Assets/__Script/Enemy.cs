@@ -40,7 +40,7 @@ public abstract class Enemy : MonoBehaviour {
 	{
 		if (enemyHp <= 0) {
 			DestoryEnemy ();
-			Camera.main.GetComponent<ScoreDisplay> ().AddScore (enemySc);
+			Camera.main.GetComponent<Main> ().AddScore (enemySc);
 		}
 	}
 
