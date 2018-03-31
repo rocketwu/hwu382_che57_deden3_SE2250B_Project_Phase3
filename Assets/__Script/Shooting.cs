@@ -10,6 +10,8 @@ public class Shooting : MonoBehaviour {
     public delegate void FireDelegate();
     public FireDelegate fireDelegate;
     public int numOfRPGs;                                   //number of bombs
+	private bool autoShot = false;
+	private float counter = 0.1f;
 	// Use this for initialization
 	void Awake () {
 		bulletSpeed = 50f;
@@ -23,6 +25,15 @@ public class Shooting : MonoBehaviour {
 			switchWeapon ();
 		if (Input.GetKeyDown (KeyCode.Space))
 			fire ();
+		if (Input.GetKeyDown (KeyCode.O))
+			autoShot = true;
+		if (autoShot == true) {
+			counter += Time.deltaTime;
+			if (counter >= 0.1f) {
+				fire ();
+				counter = 0f;
+			}
+		}
 		//simpleShooting ();
 		//blasterShooting ();	
 	}
