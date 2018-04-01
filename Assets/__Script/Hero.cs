@@ -94,16 +94,17 @@ public class Hero : MonoBehaviour {
         }
         
         lastContact = other.transform.root.gameObject;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		if (lastContact.tag == "Enemy") {
 			shieldLevel--;
-			lastContact.GetComponent<Enemy> ().DestoryEnemy ();//maybe not?
-=======
+			lastContact.GetComponent<Enemy> ().DestoryEnemy ();
+		}//maybe not?
+//=======
         if (lastContact.tag=="Enemy")
         {
             shieldLevel--;
             lastContact.GetComponent<Enemy>().enemyHp-=10;//maybe not?
->>>>>>> fedcca5735ae7d2391b57505e7c8b89dfeb07990
+//>>>>>>> fedcca5735ae7d2391b57505e7c8b89dfeb07990
 
 		} else if (lastContact.tag == "ProjectileEnemy") {
 			shieldLevel--;
@@ -122,6 +123,7 @@ public class Hero : MonoBehaviour {
 		}
 		pu.AbsorbedBy (this.gameObject);
 	}
+
 
 
 
