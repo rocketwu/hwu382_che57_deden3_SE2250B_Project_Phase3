@@ -21,7 +21,7 @@ public class Hero : MonoBehaviour {
     [Header("Set Dynamically")]
     //public float shieldLevel = 1;
     private GameObject lastContact;
-    private float _shieldLevel = 1;
+    private float _shieldLevel = 2;
 
     public float shieldLevel
     {
@@ -97,7 +97,7 @@ public class Hero : MonoBehaviour {
         if (lastContact.tag=="Enemy")
         {
             shieldLevel--;
-            lastContact.GetComponent<Enemy>().DestoryEnemy();//maybe not?
+            lastContact.GetComponent<Enemy>().enemyHp-=10;//maybe not?
 
         }else if(lastContact.tag == "ProjectileEnemy")
         {
