@@ -21,7 +21,7 @@ public class Hero : MonoBehaviour {
     [Header("Set Dynamically")]
     //public float shieldLevel = 1;
     private GameObject lastContact;
-    private float _shieldLevel = 1;
+    private float _shieldLevel = 2;
 
     public float shieldLevel
     {
@@ -94,9 +94,16 @@ public class Hero : MonoBehaviour {
         }
         
         lastContact = other.transform.root.gameObject;
+<<<<<<< HEAD
 		if (lastContact.tag == "Enemy") {
 			shieldLevel--;
 			lastContact.GetComponent<Enemy> ().DestoryEnemy ();//maybe not?
+=======
+        if (lastContact.tag=="Enemy")
+        {
+            shieldLevel--;
+            lastContact.GetComponent<Enemy>().enemyHp-=10;//maybe not?
+>>>>>>> fedcca5735ae7d2391b57505e7c8b89dfeb07990
 
 		} else if (lastContact.tag == "ProjectileEnemy") {
 			shieldLevel--;
