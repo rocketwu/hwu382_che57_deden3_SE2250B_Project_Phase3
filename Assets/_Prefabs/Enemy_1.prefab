@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  enemyHp: 4
+  enemyHp: 2
   enemySc: 3
   boundsCheck: {fileID: 0}
   bulletPrefab: {fileID: 1438082295128802, guid: 082a6f8aaff20ed4eacb4c0e8d25fa6d,

@@ -93,7 +93,9 @@ public class GameMode : MonoBehaviour {
 
     private void SpawnEnemy()
     {
-        int index = UnityEngine.Random.Range(0, prefabEnemies.Length);
+        int range = 2 > level ? 2 : level;
+        range = prefabEnemies.Length > range ? range : prefabEnemies.Length;
+        int index = UnityEngine.Random.Range(0, range);
         GameObject go = Instantiate<GameObject>(prefabEnemies[index]);
 
         float padding = enemyDefultPadding;
@@ -143,8 +145,9 @@ public class GameMode : MonoBehaviour {
             if (CutsceneDone())
             {
                 level++;
+                levelText.text = "Level: " + level;
                 mode = (level % 2 == 0) ? Mode.Boss : Mode.Minion;
-                threshold = Main.S.score + level * 20;
+                threshold = Main.S.score + level * 5;
             }
         }
 

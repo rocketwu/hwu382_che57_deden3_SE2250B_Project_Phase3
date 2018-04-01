@@ -25,7 +25,7 @@ public abstract class Enemy : MonoBehaviour {
     protected void Awake()
     {
         boundsCheck = GetComponent<BoundsCheck>();
-        boundsCheck.keepOnScreen = false;
+        //boundsCheck.keepOnScreen = false;
     }
 
     protected void Update()

@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f730b5fcc032045b5fa3cc9e2308e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 20
   enemyHp: 3
   enemySc: 4
   boundsCheck: {fileID: 0}

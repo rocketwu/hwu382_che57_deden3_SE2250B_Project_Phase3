@@ -836,7 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  enemyHp: 20
+  enemyHp: 5
   enemySc: 15
   boundsCheck: {fileID: 0}
   fireTimeGap: 0.4
@@ -856,8 +856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938f65c37d3e96b41afdfe2633acab49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  padding: 1
-  keepOnScreen: 0
+  padding: 10
+  keepOnScreen: 1
   isOnScreen: 1
   camWidth: 0
   camHeight: 0
