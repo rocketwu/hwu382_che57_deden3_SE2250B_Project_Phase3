@@ -80,7 +80,7 @@ public class Main : MonoBehaviour {
 
 
 
-        Invoke("SpawnEnemy", 0.5f / 1f);
+        //Invoke("SpawnEnemy", 0.5f / 1f);
 			WEAP_DICT = new Dictionary<weaponType, WeaponDefinition>();
 			foreach ( WeaponDefinition def in weaponDefinitions) {
 				WEAP_DICT[def.type] = def;
