@@ -97,7 +97,7 @@ public class Hero : MonoBehaviour {
         if (lastContact.tag=="Enemy")
         {
             shieldLevel--;
-            Destroy(lastContact);//maybe not?
+            lastContact.GetComponent<Enemy>().DestoryEnemy();//maybe not?
 
         }
 
