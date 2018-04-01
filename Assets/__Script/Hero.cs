@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hero : MonoBehaviour {
     static public Hero S;
 	public static Vector3 heroPosition;
-
+	public Shooting[] weapons;
     [Header("Set in Inspector")]
     public float speed = 30;
     public float rollMult = -45;
@@ -94,18 +94,29 @@ public class Hero : MonoBehaviour {
         }
         
         lastContact = other.transform.root.gameObject;
-        if (lastContact.tag=="Enemy")
-        {
-            shieldLevel--;
-            lastContact.GetComponent<Enemy>().DestoryEnemy();//maybe not?
+		if (lastContact.tag == "Enemy") {
+			shieldLevel--;
+			lastContact.GetComponent<Enemy> ().DestoryEnemy ();//maybe not?
 
-        }else if(lastContact.tag == "ProjectileEnemy")
-        {
-            shieldLevel--;
-            Destroy(lastContact);
-        }
+		} else if (lastContact.tag == "ProjectileEnemy") {
+			shieldLevel--;
+			Destroy (lastContact);
+		} else if (lastContact.tag == "PowerUp") {
+			AbsorbPowerUp (lastContact);
+		} else {
+			print ("Triggered by non-Enemy: " + lastContact.name);
+		}
 
 
     }
+	public void AbsorbPowerUp( GameObject lastContact){
+		PowerUp pu = lastContact.GetComponent<PowerUp> ();
+		switch (pu.type) {
+		}
+		pu.AbsorbedBy (this.gameObject);
+	}
+
+
+
 
 }

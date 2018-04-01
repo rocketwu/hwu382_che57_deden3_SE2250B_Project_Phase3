@@ -5,22 +5,28 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+public enum weaponType {simpleWp, blasterWp, none}
 public class Main : MonoBehaviour {
 
     static public Main S;
+	public WeaponDefinition[] weaponDefinitions;
 	public int highScore;
-
+	static Dictionary<weaponType, WeaponDefinition> WEAP_DICT;
     [Header("Set in Inspector")]
     //public GameObject[] prefabEnemies;
     //public float enemySpawnPerSecond = 0.5f;
     //public float enemyDefultPadding = 1.5f;         //the default padding is used when the object dont have BoundsCheck script. this is good 
     public float restartDelay = 2f;
-	public enum weaponType {simpleWp, blasterWp};
+	//public enum weaponType {simpleWp, blasterWp, none}
 	//public weaponType wp = weaponType.simpleWp;
     private BoundsCheck boundsCheck;
 	public Text highScoreText;
-
+	static public WeaponDefinition GetWeaponDefintion (weaponType wt){
+		if (WEAP_DICT.ContainsKey(wt)){
+			return (WEAP_DICT [wt]);
+		}
+		return (new WeaponDefinition ());
+	}
     //take from score display:===============================================================
     public Text scoreDisplay;
     public int score;
@@ -74,7 +80,11 @@ public class Main : MonoBehaviour {
 
 
 
-        //Invoke("SpawnEnemy", 0.5f / enemySpawnPerSecond);
+        Invoke("SpawnEnemy", 0.5f / 1f);
+			WEAP_DICT = new Dictionary<weaponType, WeaponDefinition>();
+			foreach ( WeaponDefinition def in weaponDefinitions) {
+				WEAP_DICT[def.type] = def;
+			}
 
     }
 
@@ -145,5 +155,25 @@ public class Main : MonoBehaviour {
 
         }
     }
+	static public WeaponDefinition GetWeaponDefinition(weaponType wt){
+	
+		if (WEAP_DICT.ContainsKey (wt)) {
+			return (WEAP_DICT [wt]);
+		}
+		return(new WeaponDefinition ());
 
+	}
+		
+}
+[System.Serializable]
+public class WeaponDefinition {
+	public weaponType type = weaponType.none;
+	public string letter;
+	public Color color= Color.white;
+	public GameObject projectilePrefab;
+	public Color projectileColor = Color.white;
+	public float damageOnHit = 0;
+	public float continuousDamage = 0;
+	public float delayBetweenShots = 0;
+	public float velocity = 20;
 }
