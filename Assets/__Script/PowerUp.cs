@@ -11,7 +11,6 @@ public class PowerUp : MonoBehaviour {
 	public float fadeTime = 4f;
 
 	[Header("Set Dynamically")]
-	public weaponType type;
 	public GameObject cube;
 	public TextMesh letter;
 	public Vector3 rotPerSecond;
@@ -59,13 +58,6 @@ public class PowerUp : MonoBehaviour {
 		if (!bndCheck.isOnScreen) {
 			Destroy (gameObject);
 		}
-	}
-
-	public void SetType (weaponType wt){
-		WeaponDefinition def = Main.GetWeaponDefinition (wt);
-		cubeRend.material.color = def.color;
-		letter.text = def.letter;
-		type = wt;
 	}
 
 	public void AbsorbedBy (GameObject target) {

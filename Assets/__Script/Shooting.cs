@@ -6,7 +6,7 @@ public class Shooting : MonoBehaviour {
 	private Vector3 _shootingPosition;
 	public GameObject bulletPrefab;
 	public float bulletSpeed;
-	public weaponType wp = weaponType.simpleWp;
+	public Main.weaponType wp = Main.weaponType.simpleWp;
     public delegate void FireDelegate();
     public FireDelegate fireDelegate;
     public int numOfRPGs;                                   //number of bombs
@@ -67,16 +67,16 @@ public class Shooting : MonoBehaviour {
 	}
 
 	private void switchWeapon(){
-		if (wp == weaponType.simpleWp)
-			wp = weaponType.blasterWp;
+		if (wp == Main.weaponType.simpleWp)
+			wp = Main.weaponType.blasterWp;
 		else 
-			wp = weaponType.simpleWp;
+			wp = Main.weaponType.simpleWp;
 	}
 
 	private void fire(){
-		if (wp == weaponType.blasterWp)
+		if (wp == Main.weaponType.blasterWp)
 			blasterShooting ();
-		if (wp == weaponType.simpleWp) {
+		if (wp == Main.weaponType.simpleWp) {
 			simpleShooting ();
 		}
 	}
