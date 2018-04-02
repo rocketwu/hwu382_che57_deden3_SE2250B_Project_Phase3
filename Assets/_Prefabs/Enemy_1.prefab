@@ -381,6 +381,7 @@ MonoBehaviour:
     type: 2}
   dropChance: 0.3
   powerType: 0000000001000000
+  expPrefab: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}
   bulletPrefab: {fileID: 1438082295128802, guid: 082a6f8aaff20ed4eacb4c0e8d25fa6d,
     type: 2}
   bulletSpeed: 40

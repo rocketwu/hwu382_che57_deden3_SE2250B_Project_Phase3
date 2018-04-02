@@ -13,6 +13,7 @@ public class Hero : MonoBehaviour {
     public GameObject who;
     public Color whoColor;
 	public float speedFactor = 1f;
+    public GameObject expPrefab;
     //private weaponType _heroWp = weaponType.simpleWp;
 
     //for restrain=============
@@ -37,6 +38,7 @@ public class Hero : MonoBehaviour {
             _shieldLevel = Mathf.Min(value, 4);
             if(value<0)
             {
+                Instantiate(expPrefab, transform.position, transform.rotation);
                 Destroy(this.gameObject);
                 Main.S.DelayedRestart();
             }

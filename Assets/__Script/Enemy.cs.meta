@@ -5,7 +5,11 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - boundsCheck: {instanceID: 0}
+  - powerUpPrefab: {fileID: 1154772220312532, guid: b5f05751a0411b242a4a060fae568f30,
+      type: 2}
+  - expPrefab: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

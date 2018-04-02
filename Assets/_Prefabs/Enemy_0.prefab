@@ -308,6 +308,7 @@ MonoBehaviour:
     type: 2}
   dropChance: 1
   powerType: 0000000001000000
+  expPrefab: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}
 --- !u!114 &114842033723712886
 MonoBehaviour:
   m_ObjectHideFlags: 1
