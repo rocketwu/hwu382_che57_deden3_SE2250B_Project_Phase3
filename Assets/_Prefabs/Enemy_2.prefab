@@ -841,8 +841,8 @@ MonoBehaviour:
   boundsCheck: {fileID: 0}
   powerUpPrefab: {fileID: 1096933201688638, guid: 568917c96d94bd343b36ac91ae172f42,
     type: 2}
-  dropChance: 0.3
-  powerType: 0000000001000000
+  dropChance: 0.5
+  powerType: 00000000010000000200000003000000
   expPrefab: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}
   fireTimeGap: 0.4
   chasingTimeGap: 2
