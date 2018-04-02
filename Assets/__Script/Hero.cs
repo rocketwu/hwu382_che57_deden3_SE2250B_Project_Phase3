@@ -10,7 +10,7 @@ public class Hero : MonoBehaviour {
     public float speed = 30;
     public float rollMult = -45;
     public float pitchMult = 30;
-	//private weaponType _heroWp = weaponType.simpleWp;
+    //private weaponType _heroWp = weaponType.simpleWp;
 
     //for restrain=============
     //public float Bleeding = 1f;
@@ -60,15 +60,13 @@ public class Hero : MonoBehaviour {
         {
             Debug.LogError("Hero.awake()-attempted to assign second Hero.S");
         }
-        //for restrain=============
-        //camHeight = Camera.main.orthographicSize;
-        //camWidth = camHeight * Camera.main.aspect;
-        //for restrain=============
 
 }
 
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
+    private float _whoTimer = 0f;
+    
 	void Update () {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
@@ -80,8 +78,16 @@ public class Hero : MonoBehaviour {
 
         transform.rotation = Quaternion.Euler(y * pitchMult, x * rollMult, 0);
 		heroPosition = transform.position;
-        
 
+        if (_whosYourDaddy)
+        {
+            _whoTimer += Time.deltaTime;
+            if (_whoTimer >= 4f)
+            {
+                _whosYourDaddy = false;
+                _whoTimer = 0f;
+            }
+        }
 		
 	}
 
@@ -96,12 +102,14 @@ public class Hero : MonoBehaviour {
         lastContact = other.transform.root.gameObject;
         if (lastContact.tag=="Enemy")
         {
-            shieldLevel--;
+            if (!_whosYourDaddy)
+                shieldLevel--;
             lastContact.GetComponent<Enemy>().enemyHp-=10;//maybe not?
 
         }else if(lastContact.tag == "ProjectileEnemy")
         {
-            shieldLevel--;
+            if (!_whosYourDaddy)
+                shieldLevel--;
             Destroy(lastContact);
         }else if (lastContact.tag == "PowerUp")
         {
@@ -120,10 +128,16 @@ public class Hero : MonoBehaviour {
                 GetComponentInChildren<Shooting>().bombNum++;
                 break;
             case PowerUp.PowerUpType.WhosYourDaddy:
-
+                whosYourDaddy();
                 break;
         }
         pu.AbsorbedBy(this.gameObject);
+    }
+    private bool _whosYourDaddy = false;
+    public void whosYourDaddy()
+    {
+        _whosYourDaddy = true;
+        _whoTimer = 0f;
     }
 
 }

@@ -393,6 +393,10 @@ MonoBehaviour:
   enemyHp: 3
   enemySc: 4
   boundsCheck: {fileID: 0}
+  powerUpPrefab: {fileID: 1096933201688638, guid: 568917c96d94bd343b36ac91ae172f42,
+    type: 2}
+  dropChance: 1
+  powerType: 0000000001000000
   backTime: 0
   bulletPrefab: {fileID: 1438082295128802, guid: 082a6f8aaff20ed4eacb4c0e8d25fa6d,
     type: 2}

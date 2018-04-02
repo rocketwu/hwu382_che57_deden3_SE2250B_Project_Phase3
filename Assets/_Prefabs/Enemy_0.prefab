@@ -304,6 +304,10 @@ MonoBehaviour:
   enemyHp: 1
   enemySc: 2
   boundsCheck: {fileID: 0}
+  powerUpPrefab: {fileID: 1096933201688638, guid: 568917c96d94bd343b36ac91ae172f42,
+    type: 2}
+  dropChance: 0.1
+  powerType: 0000000001000000
 --- !u!114 &114842033723712886
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -12,7 +12,7 @@ public class PowerUp : MonoBehaviour {
 	public float fadeTime = 4f;
 
     [Header("Set Dynamically")]
-    public PowerUpType type;
+    
 	public GameObject cube;
 	public TextMesh letter;
 	public Vector3 rotPerSecond;
@@ -21,7 +21,31 @@ public class PowerUp : MonoBehaviour {
 	private BoundsCheck bndCheck;
 	private Renderer cubeRend;
 
-	void Awake () {
+    public PowerUpType type
+    {
+        set
+        {
+            _type = value;
+            switch (_type)
+            {
+                case PowerUpType.AddBomb:
+                    GetComponent<TextMesh>().text = "B";
+                    break;
+                case PowerUpType.WhosYourDaddy:
+                    GetComponent<TextMesh>().text = "W";
+                    break;
+            }
+            
+        }
+        get
+        {
+            return _type;
+        }
+    }
+
+    private PowerUpType _type;
+
+    void Awake () {
 		cube = transform.Find ("Cube").gameObject;
 		letter = GetComponent<TextMesh> ();
 		rigid = GetComponent<Rigidbody> ();

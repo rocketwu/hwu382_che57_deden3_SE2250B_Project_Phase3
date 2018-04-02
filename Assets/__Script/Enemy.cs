@@ -10,9 +10,12 @@ public abstract class Enemy : MonoBehaviour {
     public float speed;
 	public int enemyHp;
 	public int enemySc;
-	private GameObject lastContact;
     public BoundsCheck boundsCheck;
+    public GameObject powerUpPrefab;
+    public float dropChance = 0.3f;
+    public PowerUp.PowerUpType[] powerType = new PowerUp.PowerUpType[] { PowerUp.PowerUpType.AddBomb, PowerUp.PowerUpType.WhosYourDaddy };
 	float time = 0f;
+
 
     public abstract void Move();
 
@@ -20,6 +23,18 @@ public abstract class Enemy : MonoBehaviour {
     {
         enemies.Remove(gameObject);
         Destroy(gameObject);
+        if (powerUpPrefab != null&&Random.value <= dropChance)
+        {
+            dropPowerUp();
+        }
+    }
+
+    private void dropPowerUp()
+    {
+        GameObject go = Instantiate(powerUpPrefab) as GameObject;
+        PowerUp pu = go.GetComponent<PowerUp>();
+        pu.type = powerType[Random.Range(0, powerType.Length)];
+        go.transform.position = gameObject.transform.position;
     }
 
     protected void Awake()
