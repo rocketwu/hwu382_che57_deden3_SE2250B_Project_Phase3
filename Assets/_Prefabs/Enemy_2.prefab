@@ -836,8 +836,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  enemyHp: 5
-  enemySc: 15
+  enemyHp: 20
+  enemySc: 20
   boundsCheck: {fileID: 0}
   powerUpPrefab: {fileID: 1096933201688638, guid: 568917c96d94bd343b36ac91ae172f42,
     type: 2}
@@ -848,8 +848,8 @@ MonoBehaviour:
   chasingTimeGap: 2
   bulletPrefab: {fileID: 1438082295128802, guid: 082a6f8aaff20ed4eacb4c0e8d25fa6d,
     type: 2}
-  bulletSpeed: 20
-  backTimeGap: 1.5
+  bulletSpeed: 30
+  backTimeGap: 2
 --- !u!114 &114301558922795334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -874,7 +874,7 @@ SphereCollider:
   m_GameObject: {fileID: 1718662466108120}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}

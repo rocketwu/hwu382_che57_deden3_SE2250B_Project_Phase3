@@ -28,7 +28,7 @@ public class Shooting : MonoBehaviour {
     }
 
     public int numOfRPGs;                                   //number of bombs
-	private bool autoShot = false;
+	public bool autoShot = false; // use it if you don't want to damage your space key when testing.
 	private float counter = 0.1f;
 	// Use this for initialization
 	void Awake () {
@@ -46,21 +46,19 @@ public class Shooting : MonoBehaviour {
 			fire ();
         if (Input.GetKeyDown(KeyCode.B))
             bomb();
-		//if (Input.GetKeyDown (KeyCode.O)) {
-		//	if (autoShot == false)
-		//		autoShot = true;
-		//	else
-		//		autoShot = false;
-		//}
-		//if (autoShot == true) {
-		//	counter += Time.deltaTime;
-		//	if (counter >= 0.1f) {
-		//		fire ();
-		//		counter = 0f;
-		//	}
-		//}
-		//simpleShooting ();
-		//blasterShooting ();	
+		if (Input.GetKeyDown (KeyCode.O)) {
+			if (autoShot == false)
+				autoShot = true;
+			else
+				autoShot = false;
+		}
+		if (autoShot == true) {
+			counter += Time.deltaTime;
+			if (counter >= 0.2f) {
+				fire ();
+				counter = 0f;
+			}
+		}
 	}
 
     private void bomb()

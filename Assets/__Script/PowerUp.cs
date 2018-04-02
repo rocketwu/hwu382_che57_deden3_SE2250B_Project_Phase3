@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
-    public enum PowerUpType { AddBomb,WhosYourDaddy }
+    public enum PowerUpType {AddBomb, WhosYourDaddy, SpeedUp, /*SlowDown, */AutoShooting}
 	[Header("Set in Inspector")]
 
 	public Vector2 rotMinMax = new Vector2 (15, 90);
@@ -34,6 +34,15 @@ public class PowerUp : MonoBehaviour {
                 case PowerUpType.WhosYourDaddy:
                     GetComponent<TextMesh>().text = "W";
                     break;
+				case PowerUpType.AutoShooting:
+					GetComponent<TextMesh> ().text = "A";
+					break;
+//				case PowerUpType.SlowDown:
+//					GetComponent<TextMesh> ().text = "D";
+//					break;
+				case PowerUpType.SpeedUp:
+					GetComponent<TextMesh> ().text = "U";
+					break;
             }
             
         }
@@ -67,6 +76,7 @@ public class PowerUp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		cube.transform.rotation = Quaternion.Euler (rotPerSecond * Time.time);
+//		cube.transform.position += Vector3.down * 0.1f;
 		float u = (Time.time - (birthTime + lifeTime)) / fadeTime;
 
 		if (u>=1) {

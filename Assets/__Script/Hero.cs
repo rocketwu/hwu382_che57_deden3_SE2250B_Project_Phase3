@@ -12,6 +12,7 @@ public class Hero : MonoBehaviour {
     public float pitchMult = 30;
     public GameObject who;
     public Color whoColor;
+	public float speedFactor = 1f;
     public GameObject expPrefab;
     //private weaponType _heroWp = weaponType.simpleWp;
 
@@ -78,13 +79,13 @@ public class Hero : MonoBehaviour {
         float y = Input.GetAxis("Vertical");
 
         Vector3 pos = transform.position;
-        pos.x += x * speed * Time.deltaTime;
-        pos.y += y * speed * Time.deltaTime;
+		pos.x += x * speed * Time.deltaTime * speedFactor;
+		pos.y += y * speed * Time.deltaTime * speedFactor;
         transform.position = pos;
 
         transform.rotation = Quaternion.Euler(y * pitchMult, x * rollMult, 0);
 		heroPosition = transform.position;
-
+		//-----------------------------------------------------------------
         if (_whosYourDaddy)
         {
             _whoTimer += Time.deltaTime;
@@ -97,6 +98,28 @@ public class Hero : MonoBehaviour {
                 _whoTimer = 0f;
             }
         }
+		//-----------------------------------------------------------------
+		if (_isAutoFire)
+		{
+			_autoFireCounter += Time.deltaTime;
+			if (_autoFireCounter >= 4f)
+			{
+				_isAutoFire = false;
+				_autoFireCounter = 0f;
+				GetComponentInChildren<Shooting> ().autoShot = false;
+			}
+		}
+		//-----------------------------------------------------------------
+		if (_isSpeedUp)
+		{
+			_speedUpCounter += Time.deltaTime;
+			if (_speedUpCounter >= 4f)
+			{
+				_isSpeedUp = false;
+				_speedUpCounter = 0f;
+				speedFactor = 1f;
+			}
+		}
 		
 	}
 
@@ -139,9 +162,16 @@ public class Hero : MonoBehaviour {
             case PowerUp.PowerUpType.WhosYourDaddy:
                 whosYourDaddy();
                 break;
+			case PowerUp.PowerUpType.AutoShooting:
+				autoFire();
+				break;
+			case PowerUp.PowerUpType.SpeedUp:
+				speedUp();
+				break;
         }
         pu.AbsorbedBy(this.gameObject);
     }
+	//-----------------------------------------------------------------
     private bool _whosYourDaddy = false;
     public void whosYourDaddy()
     {
@@ -149,5 +179,21 @@ public class Hero : MonoBehaviour {
         _whosYourDaddy = true;
         _whoTimer = 0f;
     }
+	//-----------------------------------------------------------------
+	private float _autoFireCounter = 0;
+	private bool _isAutoFire = false;
+	private void autoFire(){
+		_isAutoFire = true;
+		_autoFireCounter = 0;
+		GetComponentInChildren<Shooting> ().autoShot = true;
+	}
+	//----------------------------------------------------------------
+	private float _speedUpCounter = 0;
+	private bool _isSpeedUp = false;
+	private void speedUp(){
+		_isSpeedUp = true;
+		_speedUpCounter = 0;
+		speedFactor = 1.5f;
+	}
 
 }
