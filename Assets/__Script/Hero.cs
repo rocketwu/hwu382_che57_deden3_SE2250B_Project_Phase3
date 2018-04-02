@@ -10,6 +10,8 @@ public class Hero : MonoBehaviour {
     public float speed = 30;
     public float rollMult = -45;
     public float pitchMult = 30;
+    public GameObject who;
+    public Color whoColor;
     //private weaponType _heroWp = weaponType.simpleWp;
 
     //for restrain=============
@@ -60,6 +62,8 @@ public class Hero : MonoBehaviour {
         {
             Debug.LogError("Hero.awake()-attempted to assign second Hero.S");
         }
+        whoColor = who.GetComponent<Renderer>().material.color;
+        who.GetComponent<Renderer>().material.color = new Color(0,0,0,0);
 
 }
 
@@ -82,6 +86,9 @@ public class Hero : MonoBehaviour {
         if (_whosYourDaddy)
         {
             _whoTimer += Time.deltaTime;
+            Color c = who.GetComponent<Renderer>().material.color;
+            c.a = 1f - _whoTimer / 4f;
+            who.GetComponent<Renderer>().material.color = c;
             if (_whoTimer >= 4f)
             {
                 _whosYourDaddy = false;
@@ -136,6 +143,7 @@ public class Hero : MonoBehaviour {
     private bool _whosYourDaddy = false;
     public void whosYourDaddy()
     {
+        who.GetComponent<Renderer>().material.color = whoColor;
         _whosYourDaddy = true;
         _whoTimer = 0f;
     }

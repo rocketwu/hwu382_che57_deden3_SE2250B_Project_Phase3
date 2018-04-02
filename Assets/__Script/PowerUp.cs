@@ -43,7 +43,7 @@ public class PowerUp : MonoBehaviour {
         }
     }
 
-    private PowerUpType _type;
+    public PowerUpType _type;
 
     void Awake () {
 		cube = transform.Find ("Cube").gameObject;
