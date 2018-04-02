@@ -8,7 +8,7 @@ public class Enemy_0 : Enemy {
     {
 //        transform.position += speed * Vector3.down*Time.deltaTime;
 		direction=Hero.heroPosition-transform.position;
-		transform.position += speed * Time.deltaTime * ((direction.normalized) * 0.5f + Vector3.down);
+		transform.position += speed * Time.deltaTime * ((direction.normalized.x) * 0.5f * Vector3.right + Vector3.down);
     }
 
     // Use this for initialization
