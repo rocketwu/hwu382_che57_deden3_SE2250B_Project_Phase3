@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 23338930800939854}
   - component: {fileID: 102994706819358992}
   - component: {fileID: 54031374032186926}
+  - component: {fileID: 114947262714720294}
+  - component: {fileID: 114794740584611170}
   m_Layer: 12
   m_Name: PowerUp
   m_TagString: PowerUp
@@ -197,3 +199,38 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &114794740584611170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096933201688638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938f65c37d3e96b41afdfe2633acab49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  padding: 1
+  keepOnScreen: 0
+  isOnScreen: 1
+  camWidth: 0
+  camHeight: 0
+--- !u!114 &114947262714720294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096933201688638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1d44b8a535841a1b122f536bc40291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotMinMax: {x: 15, y: 90}
+  driftMinMax: {x: 0.25, y: 2}
+  lifeTime: 6
+  fadeTime: 4
+  cube: {fileID: 0}
+  letter: {fileID: 0}
+  rotPerSecond: {x: 0, y: 0, z: 0}
+  birthTime: 0

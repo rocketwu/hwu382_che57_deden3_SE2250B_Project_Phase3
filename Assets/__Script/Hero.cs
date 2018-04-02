@@ -114,7 +114,15 @@ public class Hero : MonoBehaviour {
     public void AbsorbPowerUp(GameObject lastContact)
     {
         PowerUp pu = lastContact.GetComponent<PowerUp>();
+        switch (pu.type)
+        {
+            case PowerUp.PowerUpType.AddBomb:
+                GetComponentInChildren<Shooting>().bombNum++;
+                break;
+            case PowerUp.PowerUpType.WhosYourDaddy:
 
+                break;
+        }
         pu.AbsorbedBy(this.gameObject);
     }
 

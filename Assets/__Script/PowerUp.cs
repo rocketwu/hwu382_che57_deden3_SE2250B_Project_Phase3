@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
+    public enum PowerUpType { AddBomb,WhosYourDaddy }
 	[Header("Set in Inspector")]
 
 	public Vector2 rotMinMax = new Vector2 (15, 90);
@@ -10,7 +11,8 @@ public class PowerUp : MonoBehaviour {
 	public float lifeTime = 6f;
 	public float fadeTime = 4f;
 
-	[Header("Set Dynamically")]
+    [Header("Set Dynamically")]
+    public PowerUpType type;
 	public GameObject cube;
 	public TextMesh letter;
 	public Vector3 rotPerSecond;
@@ -62,6 +64,7 @@ public class PowerUp : MonoBehaviour {
 
 	public void AbsorbedBy (GameObject target) {
 	
+
 		Destroy (this.gameObject);
 	}
 }
