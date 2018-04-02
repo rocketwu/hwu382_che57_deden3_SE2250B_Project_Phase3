@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shooting : MonoBehaviour {
 	private Vector3 _shootingPosition;
@@ -9,6 +10,23 @@ public class Shooting : MonoBehaviour {
 	public Main.weaponType wp = Main.weaponType.simpleWp;
     public delegate void FireDelegate();
     public FireDelegate fireDelegate;
+
+    public GameObject bombPrefab;
+    public Text bombTxt;
+    private int _bombNum = 3;
+    public int bombNum
+    {
+        set
+        {
+            _bombNum+=value;
+            bombTxt.text = "Bombs: " + _bombNum;
+        }
+        get
+        {
+            return _bombNum;
+        }
+    }
+
     public int numOfRPGs;                                   //number of bombs
 	private bool autoShot = false;
 	private float counter = 0.1f;
@@ -25,22 +43,32 @@ public class Shooting : MonoBehaviour {
 			switchWeapon ();
 		if (Input.GetKeyDown (KeyCode.Space))
 			fire ();
-		if (Input.GetKeyDown (KeyCode.O)) {
-			if (autoShot == false)
-				autoShot = true;
-			else
-				autoShot = false;
-		}
-		if (autoShot == true) {
-			counter += Time.deltaTime;
-			if (counter >= 0.1f) {
-				fire ();
-				counter = 0f;
-			}
-		}
+        if (Input.GetKeyDown(KeyCode.B))
+            bomb();
+		//if (Input.GetKeyDown (KeyCode.O)) {
+		//	if (autoShot == false)
+		//		autoShot = true;
+		//	else
+		//		autoShot = false;
+		//}
+		//if (autoShot == true) {
+		//	counter += Time.deltaTime;
+		//	if (counter >= 0.1f) {
+		//		fire ();
+		//		counter = 0f;
+		//	}
+		//}
 		//simpleShooting ();
 		//blasterShooting ();	
 	}
+
+    private void bomb()
+    {
+        if (bombNum > 0)
+        {
+            GameObject bomb = Instantiate<GameObject>(bombPrefab);
+        }
+    }
 
 	private void simpleShooting(){
 //		if (Input.GetKeyDown (KeyCode.Space)) {
