@@ -118,6 +118,7 @@ public class Hero : MonoBehaviour {
 				_isSpeedUp = false;
 				_speedUpCounter = 0f;
 				speedFactor = 1f;
+				this.GetComponentInChildren<MeshRenderer> ().material.color = Color.white;
 			}
 		}
 		
@@ -193,7 +194,8 @@ public class Hero : MonoBehaviour {
 	private void speedUp(){
 		_isSpeedUp = true;
 		_speedUpCounter = 0;
-		speedFactor = 1.5f;
+		speedFactor = 3f;
+		this.GetComponentInChildren<MeshRenderer> ().material.color = Color.blue;
 	}
 
 }
