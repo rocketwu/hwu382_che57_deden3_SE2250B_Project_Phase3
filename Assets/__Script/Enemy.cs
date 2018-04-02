@@ -15,7 +15,7 @@ public abstract class Enemy : MonoBehaviour {
     public float dropChance = 0.3f;
     public PowerUp.PowerUpType[] powerType = new PowerUp.PowerUpType[] { PowerUp.PowerUpType.AddBomb, PowerUp.PowerUpType.WhosYourDaddy };
 	float time = 0f;
-
+    public GameObject expPrefab;
 
     public abstract void Move();
 
@@ -23,6 +23,7 @@ public abstract class Enemy : MonoBehaviour {
     {
         enemies.Remove(gameObject);
         Destroy(gameObject);
+        Instantiate(expPrefab, transform.position, transform.rotation);
         if (powerUpPrefab != null&&Random.value <= dropChance)
         {
             dropPowerUp();

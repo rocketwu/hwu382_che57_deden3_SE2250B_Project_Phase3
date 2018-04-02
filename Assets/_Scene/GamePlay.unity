@@ -478,6 +478,7 @@ MonoBehaviour:
   pitchMult: 30
   who: {fileID: 858089539}
   whoColor: {r: 0, g: 0, b: 0, a: 0}
+  expPrefab: {fileID: 100008, guid: 3455fe69f7ddc4604b95bf9b0a1e88d7, type: 2}
 --- !u!114 &474748972
 MonoBehaviour:
   m_ObjectHideFlags: 0
