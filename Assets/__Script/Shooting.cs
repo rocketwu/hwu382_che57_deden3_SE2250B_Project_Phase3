@@ -13,12 +13,12 @@ public class Shooting : MonoBehaviour {
 
     public GameObject bombPrefab;
     public Text bombTxt;
-    private int _bombNum = 3;
+    private int _bombNum=0;
     public int bombNum
     {
         set
         {
-            _bombNum+=value;
+            _bombNum=value;
             bombTxt.text = "Bombs: " + _bombNum;
         }
         get
@@ -35,6 +35,7 @@ public class Shooting : MonoBehaviour {
 		bulletSpeed = 50f;
         fireDelegate += fire;
         numOfRPGs = 2;
+        bombNum = 3;
 	}
 	
 	// Update is called once per frame
@@ -67,7 +68,10 @@ public class Shooting : MonoBehaviour {
         if (bombNum > 0)
         {
             GameObject bomb = Instantiate<GameObject>(bombPrefab);
+            bomb.transform.position = this.GetComponentInParent<Transform>().position;
+            bombNum--;
         }
+            
     }
 
 	private void simpleShooting(){
